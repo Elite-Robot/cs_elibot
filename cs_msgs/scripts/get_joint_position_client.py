@@ -11,6 +11,7 @@ def get_joint_position_client():
     try:
         get_joint_position = rospy.ServiceProxy('get_joint_position', GetJointPosition)
         resp1 = get_joint_position()
+        print("Here are the joint positions [rad] : ")
         return resp1.pos
     except rospy.ServiceException as e:
         print("Service call failed: %s"%e)
