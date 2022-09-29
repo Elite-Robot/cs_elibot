@@ -31,14 +31,23 @@ def sendCMD(sock, cmd, params=None, id=1):
 def handle_get_joint_position(req):
     cmdscript = []
     spacestr = "  "
-    robot_ip = "192.168.51.41"
+    robot_ip = "192.168.51.83"
+    pc_ip = "192.168."
     conSuc, sock = connectETController(robot_ip)
     print(conSuc)
 
-    cmdscript.append('def getState():\n')
+    cmdscript.append('def getJointState():\n')
     cmdscript.append(spacestr+'global j\n')
     cmdscript.append(spacestr+'j = get_actual_joint_positions()\n')
-    cmdscript.append(spacestr+'print(j)\n')
+    # cmdscript.append(spacestr+'print(j)\n')
+    cmdscript.append(spacestr+'j0 = j[0]\n')
+    cmdscript.append(spacestr+'j1 = j[1]\n')
+    cmdscript.append(spacestr+'j2 = j[2]\n')
+    cmdscript.append(spacestr+'j3 = j[3]\n')
+    cmdscript.append(spacestr+'j4 = j[4]\n')
+    cmdscript.append(spacestr+'j5 = j[5]\n')
+    cmdscript.append(spacestr+'socket_open(pc_ip,23333,"socket_1")\n')
+    cmdscript.append(spacestr+'socket_send_string(str(j0)+","+str(j1)+","+str(j2)+","+str(j3)+","+str(j4)+","+str(j5),"socket_1")\n')
     cmdscript.append('end\n')
     out_script = ''
     for i in range(0,len(cmdscript)):
