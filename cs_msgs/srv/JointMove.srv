@@ -1,0 +1,8 @@
+float32[] target_joint #(list): The target joint data is 6
+float32 acc #(float): Joint acceleration; defaults to 0
+float32 speed #(float): Joint speed; defaults to 0
+float32 time #(float): Time; defaults to 0.
+float32 radius #(float): Blend radius; defaults to 0.
+---
+bool result
+

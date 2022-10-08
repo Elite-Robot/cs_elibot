@@ -58,6 +58,7 @@ find_package(catkin REQUIRED COMPONENTS
  add_service_files(
    FILES
    GetJointPosition.srv
+   JointMove.srv
 #   Service1.srv
 #   Service2.srv
  )
@@ -164,6 +165,7 @@ include_directories(
  catkin_install_python(PROGRAMS
    scripts/get_joint_position_server.py
    scripts/get_joint_position_client.py
+   scripts/joint_move_server.py
    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
  )
 
