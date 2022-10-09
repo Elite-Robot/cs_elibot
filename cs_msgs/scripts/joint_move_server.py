@@ -51,13 +51,22 @@ def handle_joint_move(req):
 
     # TODO : set parameters from req
     cmdscript.append('def movejscript():\n')
-    cmdscript.append(spacestr+'target_joint_ = [0,0,0.3,0.3,0.3,0]\n')
-    cmdscript.append(spacestr+'acc_ = 5\n')
-    cmdscript.append(spacestr+'speed_ = 1\n')
-    cmdscript.append(spacestr+'time_ = 0\n')
-    cmdscript.append(spacestr+'radius_ = 0\n')
-    cmdscript.append(spacestr+'movej(target_joint_, acc_, speed_, time_, radius_)\n')
-    # cmdscript.append(spacestr+'movej([0,0,0.3,0.3,0.3,0], acc_, speed_, time_, radius_)\n')
+    # cmdscript.append(spacestr+'target_joint_ = [0,0,0.3,0.3,0.3,0]\n')
+    # cmdscript.append(spacestr+'acc_ = 5\n')
+    # cmdscript.append(spacestr+'speed_ = 1\n')
+    # cmdscript.append(spacestr+'time_ = 0\n')
+    # cmdscript.append(spacestr+'radius_ = 0\n')
+    # cmdscript.append(spacestr+'movej(target_joint_, acc_, speed_, time_, radius_)\n')
+
+    cmdscript.append(spacestr+'j0_ = read_input_float_register(0)\n')
+    cmdscript.append(spacestr+'j1_ = read_input_float_register(1)\n')
+    cmdscript.append(spacestr+'j2_ = read_input_float_register(2)\n')
+    cmdscript.append(spacestr+'j3_ = read_input_float_register(3)\n')
+    cmdscript.append(spacestr+'j4_ = read_input_float_register(4)\n')
+    cmdscript.append(spacestr+'j5_ = read_input_float_register(5)\n')
+    cmdscript.append(spacestr+'a = read_input_float_register(6)\n')
+    cmdscript.append(spacestr+'v = read_input_float_register(7)\n')
+    cmdscript.append(spacestr+'movej([j0_,j1_,j2_,j3_,j4_,j5_], a, v, 0, 0)\n')
     cmdscript.append('end\n')
 
     out_script = ''

@@ -166,6 +166,7 @@ include_directories(
    scripts/get_joint_position_server.py
    scripts/get_joint_position_client.py
    scripts/joint_move_server.py
+   scripts/joint_move_client.py
    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
  )
 
