@@ -8,7 +8,7 @@ def joint_move_client():
     rospy.wait_for_service('joint_move')
     try:
         joint_move = rospy.ServiceProxy('joint_move', JointMove)
-        joint_ = [-1.2,-0.7,-0.9,-1.57,1.57,0]
+        joint_ = [1.2,-1.57,-0.5,-1.3,1.3,0]
         acc_ = 3
         speed_ = 2 
         time_ = 0

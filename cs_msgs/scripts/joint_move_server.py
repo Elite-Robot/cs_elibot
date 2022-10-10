@@ -37,19 +37,16 @@ def sendCMD(sock, cmd, params=None, id=1):
 def handle_joint_move(req):
     cmdscript = []
     spacestr = "  "
-    # TODO : put ip as argument
     robot_ip = "192.168.51.82"
     conSuc, sock = connectETController(robot_ip)
     print(conSuc)
     res = JointMoveResponse()
     target_joint_ = list(req.target_joint)
-    # TODO : check none values
     acc_ = req.acc
     speed_ = req.speed
     time_ = req.time
     radius_ = req.radius
 
-    # TODO : set parameters from req
     cmdscript.append('def movejscript():\n')
     cmdscript.append(spacestr+'target_joint_ = ' + str(target_joint_) + '\n')
     cmdscript.append(spacestr+'acc_ = ' + str(acc_) + '\n')
@@ -69,13 +66,6 @@ def handle_joint_move(req):
     time.sleep(10)
     # TODO : get feedback from def function
     res.result = True 
-    return res
-
-    if type(result_) == bool:
-        res.result = result_
-    else:
-        res.result = result_[0]
-    rospy.loginfo("JointMoveService ended...")
     return res
 
 def joint_move_server():
